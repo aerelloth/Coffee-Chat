@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Login / Création de compte</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+</head>
+<body>
+	<!-- Messages d'alerte -->
+		<?php if(isset($alertMessages)): ?>
+			<?php foreach($alertMessages as $messagesType => $alertMessagesType): ?>
+				<?php foreach($alertMessagesType as $alertMessage): ?>
+					<p class="alert-message <?= htmlspecialchars($messagesType) ?>"><?= $alertMessage ?></p>
+				<?php endforeach; ?>
+			<?php endforeach; ?>
+		<?php endif; ?>
+
+	<!-- Authentification -->
+	<form action="login.php" method="post" id="login">
+		<h1>Authentification</h1>
+		<input type="text" name="pseudo" placeholder="Pseudo">
+		<input type="password" name="password" placeholder="Mot de passe">
+		<button type="submit">S'authentifier</button>
+	</form>
+
+	<!-- Création de compte -->
+	<form action="create-account.php" method="post" id="create-account">
+		<h1>Créer un compte</h1>
+		<input type="text" name="pseudo" placeholder="Pseudo">
+		<input type="password" name="password" placeholder="Mot de passe">
+		<button type="submit">Créer un compte</button>
+	</form>
+</body>
+</html>

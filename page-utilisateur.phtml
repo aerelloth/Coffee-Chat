@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Coffee chat</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+</head>
+<body>
+	<div id="top-panel" class="border">
+		<!--<marquee scrollamount="5">--><h1><?= htmlspecialchars($user['username']) ?></h1><!--</marquee>-->
+		<div id="controls">
+		<a href="index.php"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+		<a href="logout.php" class="block">Se&nbsp;déconnecter</a>
+		</div>
+	</div>
+	<div id="chat">
+		<!-- <?php var_dump($messages); ?> -->
+		<?php foreach ($messages as $message) : ?>
+		<div class="message">
+			<div class="id">
+				<h2><?= htmlspecialchars($message['username']); ?></h2>
+				<h3><?= $message['publishingDate']; ?></h3>
+			</div>
+			<p><?= htmlspecialchars($message['content']); ?></p>
+		</div>
+		<?php endforeach ?>
+	</div>
+	<div id="panel" class="border">
+			<form action="add-message.php" method="post" class="add-message">
+			<textarea name="message" placeholder="Saisissez votre message"></textarea>
+			<button action="submit">Envoyer</button>
+		</form>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
